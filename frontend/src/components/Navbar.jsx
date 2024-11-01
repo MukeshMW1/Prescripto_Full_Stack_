@@ -30,7 +30,7 @@ const Navbar = () => {
 
 
   <div className="text-[12px] font-medium absolute top-0 right-0 pt-10 group-hover:block hidden z-20 rounded">
-<div className="p-2 min-w-48 rounded flex flex-col gap-3">
+<div className="p-2 min-w-48 rounded flex flex-col gap-3 bg-gray-200">
 
   <p className='hover:text-black  text-gray-500 ' onClick={()=>navigate('/my-profile')}>My Profile</p>
   <p className='hover:text-black  text-gray-500 ' onClick={()=>navigate('/my-appointments')}>My Appoinments</p>
