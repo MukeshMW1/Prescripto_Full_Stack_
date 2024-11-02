@@ -7,7 +7,7 @@ const Navbar = () => {
     const navigate = useNavigate();
   return (
     
-    <div className='flex  mt-4 items-center justify-around  mb-5 pb-4 border-b border-b-gray-400 mx-10'>
+    <div className='w-[80vw] mx-auto flex justify-between items-center   my-4 border-b-gray-600 border-b-[1px] pb-4'>
       <NavLink to='/'><img src={assets.logo} alt="" className='w-[140px] md:w-[160px] cursor-pointer ' /></NavLink>
       <div className="flex items-center gap-4">
         <ul className='md:flex gap-4 items-center text-base font-medium md:text-[14px] text-[10px]  hidden'>
