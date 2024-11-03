@@ -7,7 +7,7 @@ const Doctor = () => {
   const { speciality } = useParams();
   const { doctors } = useContext(AppContext);
   const [filterDoc, setFilterDoc] = useState([]);
-
+const [filter,setFilter ]= useState(false);
   const navigate = useNavigate();
 
   const applyFilter = () => {
@@ -31,11 +31,19 @@ const Doctor = () => {
       <div className="flex md:flex-row flex-col gap-4  justify-between">
 
 
-        <div className=" flex flex-col gap-4">
+
+
+
+      <p onClick={()=>setFilter(!filter)} className={`border p-2 max-w-20 text-center text-[14px] h-[33px] w-[65px]  rounded  cursor-pointer md:hidden flex justify-center items-center  ${ filter ? 'bg-blue-400 text-white':''}` } >Filters</p>
+
+
+
+
+        <div className={` md:flex flex-col gap-4  rounded-[10px] ${filter? 'flex' :' hidden'}`} >
           {
             specialityData.map((data, index) =>
             (
-              <p onClick={()=>navigate(speciality === data.speciality ? `/doctors` : `/doctors/${data.speciality}` )} className={`border p-2 max-w-60 cursor-pointer  ${ speciality === data.speciality ? 'bg-blue-100':''}` }  key={index}>{data.speciality}</p>
+              <p onClick={()=>navigate(speciality === data.speciality ? `/doctors` : `/doctors/${data.speciality}` )} className={` rounded-[10px] border p-2 max-w-60 cursor-pointer  ${ speciality === data.speciality ? 'bg-blue-100':''}` }  key={index}>{data.speciality}</p>
 
             ))
           }
