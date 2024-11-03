@@ -10,7 +10,10 @@ export default {
         'primary':'#5F6FFF'
       },
       gridTemplateColumns:{
-        'auto':'repeat(auto-fill,minmax(200px,1fr))'
+        'auto':'repeat(auto-fill,minmax(200px,1fr))',
+        'autos':'repeat(auto-fill,minmax(190px,1fr))',
+        'autosm':'repeat(auto-fill,minmax(180px,1fr))',
+
       }
     },
   },

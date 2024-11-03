@@ -6,7 +6,7 @@ const TopDoctors = () => {
 const navigate = useNavigate();
 const {doctors} = useContext(AppContext);
   return (
-    <div className='w-full mx-auto flex flex-col items-center justify-center gap-4 mb-20 lg:px-28 md:px-20 px-14 '>
+    <div className='w-[80vw] mx-auto flex flex-col items-center justify-center gap-4 mb-20 lg:px-20 md:px-16 px-10 '>
       <h1 className='text-center
        text-[20px] md:text-[26px]  font-medium'>Top Doctors To Book</h1>
       <p className='w-1/2 text-center text-[12px]  text-black text-wrap'>Simply browse through our extensive <br/>
