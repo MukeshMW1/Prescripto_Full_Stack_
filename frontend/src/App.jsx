@@ -9,6 +9,7 @@ import MyProfile from './pages/MyProfile'
 import Navbar from './components/Navbar'
 import Login from './pages/Login'
 import Footer from './components/Footer'
+import Appointment from './pages/Appointment'
 const App = () => {
   return (
     <div>
@@ -19,8 +20,8 @@ const App = () => {
       <Route path='/doctors/:speciality' element={<Doctor/>}></Route>
       <Route path='/about' element={<About/>}></Route>
       <Route path='/contact' element={<Contact/>}></Route>
-      <Route path='/myAppointments' element={<Home/>}></Route>
-      <Route path='/my-appontments/:docId' element={<Home/>}></Route>
+      <Route path='/myAppointments' element={<MyAppoinments/>}></Route>
+      <Route path='/appointment/:docId' element={<Appointment/>}></Route>
       <Route path='/my-profile' element={<MyProfile/>}></Route>
       <Route path='/login' element={<Login/>}></Route>
       </Routes>
