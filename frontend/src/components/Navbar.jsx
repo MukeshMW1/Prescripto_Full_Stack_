@@ -5,9 +5,13 @@ const Navbar = () => {
   const [token,setToken] = useState(true);
   const [showMenu,setShowMenu] = useState(false);
     const navigate = useNavigate();
+
+  
   return (
     
     <div className='w-[80vw] mx-auto flex justify-between items-center   my-4 border-b-gray-600 border-b-[1px] pb-4'>
+      
+
       <NavLink to='/'><img src={assets.logo} alt="" className='w-[140px] md:w-[160px] cursor-pointer ' /></NavLink>
       <div className="flex items-center gap-4">
         <ul className='md:flex gap-4 items-center text-base font-medium md:text-[14px] text-[10px]  hidden'>
@@ -44,8 +48,27 @@ const Navbar = () => {
       :
       <button onClick={()=>navigate('/login')} className='border rounded-[20px] py-2 px-4 bg-primary text-white text-[12px] md:flex items-center hidden'>Create Account</button>
 }
+      <img onClick={()=>setShowMenu(true)} src={assets.menu_icon} className='w-6 md:hidden cursor-pointer' alt="" />
+      
+
+        <div className={`${showMenu ? 'fixed w-full': 'w-0 h-0'} md:hidden right-0 top-0 bottom-0 z-20 overflow-hidden bg-white transition-all duration-300`}>
+        <div className="flex justify-between mx-4 items-center mt-4">
+
+      <img src={assets.logo} alt="" className='w-40'/>
+<img onClick={()=>setShowMenu(false)} src={assets.cross_icon} alt="" className='w-6' />
+        </div>
+        <ul className='flex flex-col items-center gap-4 mt-20 '>
+          <NavLink onClick={()=>setShowMenu(false)} to='/' ><p className='font-medium cursor-pointers text-[18px] rounded px-4 py-2'>HOME</p></NavLink>
+          <NavLink onClick={()=>setShowMenu(false)} to='/doctors' ><p className='font-medium cursor-pointers text-[18px] rounded px-4 py-2'>ALL DOCTORS</p></NavLink>
+          <NavLink onClick={()=>setShowMenu(false)} to='/about' ><p className='font-medium cursor-pointers text-[18px] rounded px-4 py-2'>ABOUT</p></NavLink>
+          <NavLink onClick={()=>setShowMenu(false)} to='/contact'><p className='font-medium cursor-pointers text-[18px] rounded px-4 py-2'>CONTACT</p></NavLink>
+        </ul>
+      </div>
       </div>
       
+      
+      
+  
     </div >
    
   )

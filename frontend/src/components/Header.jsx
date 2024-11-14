@@ -7,7 +7,7 @@ const Header = () => {
 
 
       {/* left part */}
-<div className="md:w-1/2 flex flex-col md:items-start justify-center gap-6 md:py-20   ">
+<div className="md:w-1/2 flex flex-col md:items-start justify-center gap-6 md:py-20 lg:px-10  ">
 <h1 className='text-[20px] md:text-[30px] text-white font-bold'>Book Appointment <br/> With Trusted Doctors</h1>
 <div className="flex md:flex-row flex-col justify-center items-center gap-3 ">
   <img src={assets.group_profiles} alt="" className='h-[40px]'/>

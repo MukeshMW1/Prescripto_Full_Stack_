@@ -29,7 +29,7 @@ const {doctors} = useContext(AppContext);
 }
 
       </div>
-      <button onClick={()=>{navigate('/doctors');scrollTo(0,0)}} className='border rounded-[20px] px-6 py-1 bg-blue-50'>More</button>
+      <button onClick={()=>{navigate('/doctors');scrollTo(0,0)}} className='border rounded-[20px] px-6 py-1 bg-blue-50 mt-10'>More</button>
     </div>
   )
 }
