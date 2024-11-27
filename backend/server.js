@@ -3,6 +3,7 @@ import cors from 'cors'
 import 'dotenv/config'
 import { connectDb } from './config/mongodb.js'
 import connectCloudinary from './config/cloudinary.js'
+import adminRouter from './routes/adminRoute.js'
 
 
 
@@ -19,10 +20,15 @@ connectDb();
 connectCloudinary();
 
 //api endpoint
+app.use('/api/admin',adminRouter)
+//local host:4000/api/admin
+
 app.get('/',(req,res)=>{
    
     res.send(`This is the server listening at port ${port}`)
 }) 
+
+
 
 app.listen(port,(err)=>
 {
