@@ -7,6 +7,7 @@ import adminRouter from './routes/adminRoute.js'
 
 
 
+
 //app config
 
 
@@ -27,6 +28,8 @@ app.get('/',(req,res)=>{
    
     res.send(`This is the server listening at port ${port}`)
 }) 
+
+
 
 
 

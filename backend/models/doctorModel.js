@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-
+import bcrypt from 'bcrypt'
 const doctorSchema = new mongoose.Schema(
   {
     name: {
@@ -33,7 +33,7 @@ const doctorSchema = new mongoose.Schema(
     },
     available: {
       type: Boolean,
-      required: true,
+      default: true,
     },
     fees: {
       type: Number,
@@ -58,7 +58,29 @@ const doctorSchema = new mongoose.Schema(
   }
 );
 
-const doctorModel =
-  mongoose.models.doctor || mongoose.model("doctor", doctorSchema);
+
+doctorSchema.pre('save', async function(next)
+{
+
+  const user =this;
+  
+  if(!user.isModified('password'))
+    {
+     return next();
+    }
+    
+    try {
+      const saltRounds = await bcrypt.genSalt(10);
+      const hashedPassword =await bcrypt.hash(user.password,saltRounds)
+  user.password = hashedPassword
+} catch (error) {
+  next(error)
+  
+}
+
+
+})
+
+const doctorModel =mongoose.models.doctor || mongoose.model("doctor", doctorSchema);
 
 export default doctorModel;
