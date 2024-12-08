@@ -1,15 +1,22 @@
 import validator from 'validator'
 import {v2 as cloudinary} from 'cloudinary'
 import doctorModel from '../models/doctorModel.js'
-import path from 'path'
+import  'dotenv/config'
+import jwt from 'jsonwebtoken'
 //API for adding Dotors
 const addDoctor = async (req,res)=>{
     try {
         const {name,email,password,speciality,degree,experience,fees,about,address} = req.body
         
-const imageFile = req.file 
+        console.log({name,email,password,speciality,degree,experience,fees,about,address} ,req.file)
 
-// console.log({name,email,password,speciality,degree,experience,fees,about,address} ,imageFile)
+    if(await !req.file)
+        {
+           return res.json({success:false,message:"File was not found"})
+        }    
+const imageFile =await req.file 
+console.log(req.file); // Log the file object
+
 
 
 
@@ -72,9 +79,38 @@ res.json({success:true,message:"Doctor Added"})
       res.json({success:false,message:error.message})  
     }
 
+//api for the admin login
+
+
+const loginAdmin =async(req,res)=>{
+
+
+try
+{
+const {email, password} = await req.body;
+if(email === process.env.ADMIN_EMAIL && password === process.env.ADMIN_PASSWORD )
+{
+
+}
+else{
+    res.json({success:false,message:"Invalid Credentials"})
+}
+}
+
+catch(error)
+{
+    console.log(error)
+      res.json({success:false,message:error.message})   
+}
+
+
+
+
+} 
+
 
 
 
     }
 
-    export {addDoctor}
+    export {addDoctor, loginAdmin}

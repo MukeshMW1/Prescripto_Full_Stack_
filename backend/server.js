@@ -29,6 +29,11 @@ app.get('/',(req,res)=>{
     res.send(`This is the server listening at port ${port}`)
 }) 
 
+// Error handling middleware
+app.use((err, req, res, next) => {
+    console.error("Unhandled error:", err.message);
+    res.status(500).json({ success: false, message: "Internal Server Error" });
+});
 
 
 
@@ -37,10 +42,10 @@ app.listen(port,(err)=>
 {
     if(err)
         {
-            console.log("There was an error connecting to the server",err);
+            console.error("There was an error connecting to the server",err);
             return
         }
-    console.error('The server is listening at port',port);
+    console.log('The server is listening at port',port);
 })
 
 
